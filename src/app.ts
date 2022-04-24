@@ -7,6 +7,10 @@ if (process.env.NODE_ENV !== 'production') {
 app.get('/', (req, res) => {
   res.send('The server is working!')
 })
+app.get('/test', (req, res) => {
+  res.send('heroku test!')
+})
+
 app.listen(process.env.PORT, () => {
   console.log(`server is listening on ${process.env.PORT} env!!!`)
 })
