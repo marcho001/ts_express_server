@@ -12,7 +12,7 @@
     "dev": "set NODE_ENV=development && nodemon src/app.ts",
     "postinstall": "tsc",
     "watch-ts": "tsc -w",
-    "deploy": "tsc && git add . && git commit -m Heroku && git push heroku master"
+    "deploy": "tsc && git add . && git commit -m deploy && git push heroku master"
   },
   "keywords": [],
   "author": "",

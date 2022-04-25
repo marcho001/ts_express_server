@@ -8,12 +8,8 @@ const app = (0, express_1.default)();
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
 }
-app.get('/', (req, res) => {
-    res.send('The server is working!');
-});
-app.get('/test', (req, res) => {
-    res.send('heroku test!');
-});
+const index_1 = __importDefault(require("./routes/index"));
+(0, index_1.default)(app);
 app.listen(process.env.PORT, () => {
     console.log(`server is listening on ${process.env.PORT} env!!!`);
 });
