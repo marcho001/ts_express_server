@@ -12,7 +12,7 @@ export default {
             target: '#banner_1',
             eventId: '1',
             triggerType: 'click',
-            eventDetail: ['Banner_1 名稱', 'Banner_1 類別', 'Banner_1 yoyo', 'Banner_1 yaya'],
+            eventDetail: ['Banner_1 名稱', 'Banner_1 類別', 'Banner_1 yoyo', 'Banner_1 yayah'],
           },
           {
             target: '#banner_2',
