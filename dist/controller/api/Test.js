@@ -3,9 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
     index(req, res) {
         const { address = '' } = req.query;
-        if (!address) {
-            res.status(400).json({ message: '請帶網址' });
-        }
         if (address === 'https://nocode.pages.dev/trace') {
             res.json({
                 data: [
@@ -47,6 +44,9 @@ exports.default = {
                     },
                 ],
             });
+        }
+        else {
+            res.status(400).json({ message: '請帶網址' });
         }
     },
 };

@@ -2,9 +2,7 @@ import { Request, Response } from 'express'
 export default {
   index(req: Request, res: Response) {
     const { address = '' } = req.query
-    if (!address) {
-      res.status(400).json({ message: '請帶網址' })
-    }
+
     if (address === 'https://nocode.pages.dev/trace') {
       res.json({
         data: [
@@ -46,6 +44,8 @@ export default {
           },
         ],
       })
+    } else {
+      res.status(400).json({ message: '請帶網址' })
     }
   },
 }
