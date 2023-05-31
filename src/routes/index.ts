@@ -2,5 +2,5 @@ import { Express } from 'express'
 import { router as EdmApi } from './api/EdmApi'
 
 export default (app: Express) => {
-  app.use('/', EdmApi)
+  app.use('/api', EdmApi)
 }

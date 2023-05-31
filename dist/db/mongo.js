@@ -8,18 +8,24 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const app_1 = __importDefault(require("./app"));
-const mongo_1 = __importDefault(require("./db/mongo"));
-(() => __awaiter(void 0, void 0, void 0, function* () {
-    (0, mongo_1.default)()
-        .then(console.log)
-        .catch(console.error)
-        .finally(() => mongo_1.default.close());
-    app_1.default.listen(process.env.PORT, () => {
-        console.log(`server is listening on ${process.env.PORT} env!!!`);
+const mongodb_1 = require("mongodb");
+const uri = process.env.MONGODB;
+const client = new mongodb_1.MongoClient(uri);
+function run() {
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const database = client.db('sample_mflix');
+            const movies = database.collection('movies');
+            // Query for a movie that has the title 'Back to the Future'
+            const query = { title: 'Back to the Future' };
+            const movie = yield movies.findOne(query);
+            console.log(movie);
+        }
+        finally {
+            // Ensures that the client will close when you finish/error
+            yield client.close();
+        }
     });
-}))();
+}
+run().catch(console.dir);
