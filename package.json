@@ -12,6 +12,7 @@
     "dev": "set NODE_ENV=development && nodemon src/index.ts",
     "postinstall": "tsc",
     "watch-ts": "tsc -w",
+    "build": "tsc",
     "deploy": "tsc && git add . && git commit -m deploy && git push heroku master"
   },
   "keywords": [],
