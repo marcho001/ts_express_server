@@ -15,17 +15,21 @@ router.get('/test', (req, res) => {
 })
 
 router.get('/upload', async (req, res) => {
-  res.send('test upload')
   const params = {
     Bucket: 'marc-s3-storage',
-    Key: 'test.txt',
-    Body: 'Hello World!'
+    Key: `cdp_track_doc/${Date.now()}.jpeg`,
+    Body: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD…HOV3HnSxVNUzApYflOp603Aowow/MPAp+WgtqfChUYrH/2Q==',
+    ContentEncoding: 'base64',
+    ContentType: 'image/jpeg'
   }
   try {
     const data = await s3Client.send(new PutObjectCommand(params))
     console.log('Success', data)
+    console.log(data)
+    res.send(data)
   } catch (err) {
     console.log('Error', err)
+    res.send(err)
   }
 })
 
