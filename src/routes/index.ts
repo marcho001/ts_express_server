@@ -1,6 +1,6 @@
 import { Express } from 'express'
-import { router as EdmApi } from './api/EdmApi'
+import apiRoutes from './api/index'
 
 export default (app: Express) => {
-  app.use('/api', EdmApi)
+  app.use('/api', apiRoutes)
 }
