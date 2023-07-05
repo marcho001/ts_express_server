@@ -13,7 +13,8 @@
     "postinstall": "tsc",
     "watch-ts": "tsc -w",
     "build": "tsc",
-    "deploy": "tsc && git add . && git commit -m deploy && git push heroku master"
+    "deploy": "tsc && git add . && git commit -m deploy && git push heroku master",
+    "test": "jest --watch"
   },
   "keywords": [],
   "author": "",
@@ -21,13 +22,17 @@
   "devDependencies": {
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
+    "@types/jest": "^29.5.2",
     "@types/node": "^17.0.25",
     "@typescript-eslint/eslint-plugin": "^5.32.0",
     "@typescript-eslint/parser": "^5.32.0",
     "eslint": "^8.21.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "jest": "^29.6.0",
     "nodemon": "^2.0.15",
     "prettier": "^2.7.1",
+    "supertest": "^6.3.3",
+    "ts-jest": "^29.1.1",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.3"
   },
