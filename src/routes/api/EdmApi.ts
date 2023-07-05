@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import mongoDB from '../../db/mongo'
+
 import s3Client from '../../services/S3Service'
 import { PutObjectCommand } from '@aws-sdk/client-s3'
 
@@ -11,7 +11,6 @@ router.get('/mjml', (req, res) => {
 
 router.get('/test', (req, res) => {
   console.log('test')
-  mongoDB.db('express_server').collection('test').insertOne({ test: 'test' })
 })
 
 // router.get('/upload', async (req, res) => {
