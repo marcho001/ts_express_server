@@ -1,7 +1,12 @@
 import app from './app'
-import client from './db/mongo'
+import mongoose from './db/mongo/index'
 ;(async () => {
-  client.connect().then(console.log).catch(console.error)
+  try {
+    await mongoose.connect()
+    console.log('mongo db connected')
+  } catch (error) {
+    console.error(error)
+  }
 
   app.listen(process.env.PORT, () => {
     console.log(`server is listening on ${process.env.PORT} env!!!`)
