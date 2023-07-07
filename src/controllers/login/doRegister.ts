@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { RegisterReqBody } from '../../type/login'
 import UserModel from '../../db/mongo/models/user'
-import { ERROR_STATUS } from '../../enum'
+import { ERROR_STATUS } from '../../enums'
 export default async (req: Request, res: Response) => {
   const { name, password, email, confirmPassword }: RegisterReqBody = req.body
   try {
